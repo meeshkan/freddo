@@ -43,3 +43,14 @@ t('status code', async t => {
     ;({ freddo } = require('../index'))
 	t.is(await freddo().status(200), true)
 })
+
+t('headers', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: { 'content-type': 'application/json' },
+    	statusCode: '',
+        body: {}
+    })
+    ;({ freddo } = require('../index'))
+	t.is(await freddo().header('content-type', 'application/json'), true)
+})
