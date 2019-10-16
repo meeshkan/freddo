@@ -32,3 +32,14 @@ t('body with no match', async t => {
     })
 	t.is(error.message, 'Expected key "body" to be {"foo":"unicorn"}, but got {"foo":"bar"}')
 })
+
+t('status code', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {}, 
+        statusCode: 200, 
+        body: {}
+    })
+    ;({ freddo } = require('../index'))
+	t.is(await freddo().status(200), true)
+})
