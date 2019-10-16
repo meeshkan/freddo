@@ -2,4 +2,14 @@ const sinon = require('sinon')
 
 const clearModuleCache = module => delete require.cache[require.resolve(module)]
 
-module.exports = clearModuleCache
+const stubModule = async (module, returnVal) => {
+	clearModuleCache(module)
+	require.cache[require.resolve(module)] = {
+		exports: sinon.stub().returns(returnVal),
+	}
+}
+
+module.exports = {
+	clearModuleCache,
+	stubModule
+}
