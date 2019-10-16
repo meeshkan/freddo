@@ -19,5 +19,12 @@
   "devDependencies": {
     "ava": "^2.4.0",
     "sinon": "^7.5.0"
-  }
+  },
+  "keywords": [
+    "assertion",
+    "assertions",
+    "integration",
+    "testing",
+    "api"
+  ],
 }
