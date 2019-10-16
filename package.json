@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "A minimal assertion testing framework for APIs",
   "main": "index.js",
+  "author": {
+    "name": "Nikolaos Kamarinakis",
+    "url": "https://nikolaskama.me",
+    "email": "nikolaskam@gmail.com"
+  },
   "scripts": {
     "test": "ava"
   },
-  "author": "k4m4",
   "license": "MIT",
   "dependencies": {
     "got": "^9.6.0",
