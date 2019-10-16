@@ -101,3 +101,14 @@ t('expr', async t => {
     ;({ freddo, expr } = require('../index'))
 	t.is(await freddo().expect(expr('.foo'), ([x]) => x == 'bar'), true)
 })
+
+t('exists', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: 200,
+        body: {}
+    })
+    ;({ freddo, exists } = require('../index'))
+	t.is(await freddo().expect('statusCode', toExist), true)
+})
