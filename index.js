@@ -1,4 +1,5 @@
 const got = require('got')
+const JSPath = require('jspath')
 const assert = require('assert').strict
 
 const freddo = url => new Test(url)
@@ -39,16 +40,24 @@ Test.prototype.request = function() {
 
 Test.prototype.verify = async function(key, expected, isHeader) {
     let check = expected
-    let value
-    if (isHeader) {
-        value = this.dataObj.headers[key]
+    let value, location
+    if (key instanceof Expression) {
+        if (typeof this.dataObj.body != 'string') {
+            this.dataObj.body = JSON.stringify(this.dataObj.body)
+        }
+        value = key.apply(JSON.parse(this.dataObj.body))
+        location = `expression ${JSON.stringify(key.expression)}`
     } else {
-        value = this.dataObj[key]
+        if (isHeader) {
+            value = this.dataObj.headers[key]
+        } else {
+            value = this.dataObj[key]
+        }
+        if (typeof value === 'undefined') {
+            throw new Error(`Key ${JSON.stringify(key)} does not exist`)
+        }
+        location = `key ${JSON.stringify(key)}`
     }
-    if (typeof value === 'undefined') {
-        throw new Error(`Key ${JSON.stringify(key)} does not exist`)
-    }
-    const location = `key ${JSON.stringify(key)}`
     if (typeof expected !== 'function') {
         check = (actual, location) => {
             try {
@@ -106,4 +115,18 @@ Test.prototype.ensure = async function() {
     }
 }
 
-module.exports = freddo
+const expr = (expression) => {
+    return new Expression(expression)
+}
+
+class Expression {
+    constructor(expression) {
+        this.expression = expression
+    }
+    apply(haystack) {
+        let result = JSPath.apply(this.expression, haystack)
+        return result
+    }
+}
+
+module.exports = { freddo, expr }
