@@ -83,4 +83,8 @@ Test.prototype.expect = function(key, expected, isHeader = false) {
     return this.next((prev) => prev && this.verify(key, expected, isHeader))
 }
 
-module.exports = { freddo }
+Test.prototype.status = function(expected) {
+    return this.expect('statusCode', expected)
+}
+
+module.exports = freddo
