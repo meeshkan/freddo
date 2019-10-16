@@ -1,4 +1,5 @@
 const got = require('got')
+const assert = require('assert').strict
 
 const freddo = url => new Test(url)
 
@@ -34,4 +35,50 @@ Test.prototype.request = function() {
         this.dataObj.statusCode = response.statusCode
         return true
     })
+}
+
+Test.prototype.verify = async function(key, expected, isHeader) {
+    let check = expected
+    let value
+    if (isHeader) {
+        value = this.dataObj.headers[key]
+    } else {
+        value = this.dataObj[key]
+    }
+    if (typeof value === 'undefined') {
+        throw new Error(`Key ${JSON.stringify(key)} does not exist`)
+    }
+    const location = `key ${JSON.stringify(key)}`
+    if (typeof expected !== 'function') {
+        check = (actual, location) => {
+            try {
+                assert.deepStrictEqual(actual, expected)
+            } catch (e) {
+                return {
+                    result: false,
+                    error: `Expected ${location} to be ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`
+                }
+            }
+            return true
+        }
+    }
+    let result = check(value, location)
+    let error = `Custom assertion failed: ${check}`
+    if (typeof result !== 'boolean') {
+        if (typeof result.result === 'undefined') {
+            throw new Error('Custom assertion functions must return a boolean or a {result, error} object')
+        }
+        if (typeof result.error !== 'undefined') {
+            error = result.error
+        }
+        result = result.result
+    }
+    if (!result) {
+        this.dataObj.error = error
+    }
+    return result
+}
+
+Test.prototype.expect = function(key, expected, isHeader = false) {
+    return this.next((prev) => prev && this.verify(key, expected, isHeader))
 }
