@@ -7,5 +7,8 @@
     "test": "ava"
   },
   "author": "k4m4",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "got": "^9.6.0"
+  }
 }
