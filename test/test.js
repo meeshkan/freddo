@@ -90,3 +90,14 @@ t('no match without ensure', async t => {
     ;({ freddo } = require('../index'))
 	t.is(await freddo().expect('body', {'foo': 'unicorn'}), false)
 })
+
+t('expr', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: '',
+        body: { foo: 'bar' }
+    })
+    ;({ freddo, expr } = require('../index'))
+	t.is(await freddo().expect(expr('.foo'), ([x]) => x == 'bar'), true)
+})
