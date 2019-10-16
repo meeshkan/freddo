@@ -11,5 +11,8 @@
   "dependencies": {
     "got": "^9.6.0",
     "jspath": "^0.4.0"
+  },
+  "devDependencies": {
+    "ava": "^2.4.0"
   }
 }
