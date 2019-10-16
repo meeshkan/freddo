@@ -87,4 +87,8 @@ Test.prototype.status = function(expected) {
     return this.expect('statusCode', expected)
 }
 
+Test.prototype.header = function(key, expected) {
+    return this.expect(key, expected, true)
+}
+
 module.exports = freddo
