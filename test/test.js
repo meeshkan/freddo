@@ -112,3 +112,14 @@ t('toExist', async t => {
     ;({ freddo, toExist } = require('../index'))
 	t.is(await freddo().expect('statusCode', toExist), true)
 })
+
+t('pass function as expected value', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: 404,
+        body: {}
+    })
+    ;({ freddo } = require('../index'))
+    t.is(await freddo().expect('statusCode', (x) => x == 404), true)
+})
