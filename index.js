@@ -82,3 +82,5 @@ Test.prototype.verify = async function(key, expected, isHeader) {
 Test.prototype.expect = function(key, expected, isHeader = false) {
     return this.next((prev) => prev && this.verify(key, expected, isHeader))
 }
+
+module.exports = { freddo }
