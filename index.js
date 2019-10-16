@@ -91,4 +91,8 @@ Test.prototype.header = function(key, expected) {
     return this.expect(key, expected, true)
 }
 
+Test.prototype.body = function(expected) {
+    return this.expect('body', expected)
+}
+
 module.exports = freddo
