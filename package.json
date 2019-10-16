@@ -27,4 +27,10 @@
     "testing",
     "api"
   ],
+  "ava": {
+    "files": [
+      "test/test.js",
+      "!test/runkit.js"
+    ]
+  }
 }
