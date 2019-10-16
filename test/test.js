@@ -79,3 +79,14 @@ t('invalid key', async t => {
 	})
     t.is(error.message, 'Key "does-not-exist" does not exist')
 })
+
+t('no match without ensure', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: '',
+        body: { foo: 'bar' }
+    })
+    ;({ freddo } = require('../index'))
+	t.is(await freddo().expect('body', {'foo': 'unicorn'}), false)
+})
