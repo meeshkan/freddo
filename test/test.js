@@ -65,3 +65,17 @@ t('redirectsTo', async t => {
     ;({ freddo } = require('../index'))
 	t.is(await freddo().redirectsTo('http://www.example.org/'), true)
 })
+
+t('invalid key', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: '',
+        body: { foo: 'bar' }
+    })
+    ;({ freddo } = require('../index'))
+	const error = await t.throwsAsync(async () => {
+		await freddo().expect('does-not-exist', '')
+	})
+    t.is(error.message, 'Key "does-not-exist" does not exist')
+})
