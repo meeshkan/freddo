@@ -115,6 +115,16 @@ Test.prototype.ensure = async function() {
     }
 }
 
+const exists = (actual, location) => {
+    if (actual.length != 0) {
+        return true
+    }
+    return {
+        result: false,
+        error: `Expected ${location} to contain a value, but it does not exist`
+    }
+}
+
 const expr = (expression) => {
     return new Expression(expression)
 }
@@ -129,4 +139,4 @@ class Expression {
     }
 }
 
-module.exports = { freddo, expr }
+module.exports = { freddo, expr, exists }
