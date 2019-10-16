@@ -9,6 +9,7 @@
   "author": "k4m4",
   "license": "MIT",
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^9.6.0",
+    "jspath": "^0.4.0"
   }
 }
