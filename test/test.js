@@ -144,3 +144,19 @@ t('pass function that returns boolean and error message', async t => {
 	})
     t.is(error.message, 'Some custom error message')
 })
+
+t('pass function that does not return boolean', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: 404,
+        body: {}
+    })
+    ;({ freddo } = require('../index'))
+    const error = await t.throwsAsync(async () => {
+		await freddo()
+            .expect('statusCode', (x) => 'unicorn')
+            .ensure()
+	})
+    t.is(error.message, 'Custom assertion functions must return a boolean or a {result, error} object')
+})
