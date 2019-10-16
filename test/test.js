@@ -54,3 +54,14 @@ t('headers', async t => {
     ;({ freddo } = require('../index'))
 	t.is(await freddo().header('content-type', 'application/json'), true)
 })
+
+t('redirectsTo', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: { location: 'http://www.example.org/' }, 
+        statusCode: 301,
+        body: {}
+    })
+    ;({ freddo } = require('../index'))
+	t.is(await freddo().redirectsTo('http://www.example.org/'), true)
+})
