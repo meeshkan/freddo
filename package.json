@@ -1,0 +1,11 @@
+{
+  "name": "freddo",
+  "version": "1.0.0",
+  "description": "A minimal assertion testing framework for APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "k4m4",
+  "license": "MIT"
+}
