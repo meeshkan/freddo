@@ -95,4 +95,9 @@ Test.prototype.body = function(expected) {
     return this.expect('body', expected)
 }
 
+Test.prototype.redirectsTo = function(url) {
+    return this.status((code) => [301, 302, 303, 307, 308].includes(code))
+               .header('location', url)
+}
+
 module.exports = freddo
