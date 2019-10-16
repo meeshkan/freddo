@@ -100,4 +100,10 @@ Test.prototype.redirectsTo = function(url) {
                .header('location', url)
 }
 
+Test.prototype.ensure = async function() {
+    if (!(await this)) {
+        throw new Error(this.dataObj.error)
+    }
+}
+
 module.exports = freddo
