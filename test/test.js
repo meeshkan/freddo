@@ -123,3 +123,24 @@ t('pass function as expected value', async t => {
     ;({ freddo } = require('../index'))
     t.is(await freddo().expect('statusCode', (x) => x == 404), true)
 })
+
+t('pass function that returns boolean and error message', async t => {
+    clearFreddoCache()
+    stubGot({
+        headers: {},
+        statusCode: null,
+        body: {}
+    })
+    ;({ freddo } = require('../index'))
+    const error = await t.throwsAsync(async () => {
+		await freddo()
+            .expect('statusCode', () => {
+                return {
+                    result: false,
+                    error: 'Some custom error message'
+                }
+            })
+            .ensure()
+	})
+    t.is(error.message, 'Some custom error message')
+})
