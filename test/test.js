@@ -102,13 +102,13 @@ t('expr', async t => {
 	t.is(await freddo().expect(expr('.foo'), ([x]) => x == 'bar'), true)
 })
 
-t('exists', async t => {
+t('toExist', async t => {
     clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: 200,
         body: {}
     })
-    ;({ freddo, exists } = require('../index'))
+    ;({ freddo, toExist } = require('../index'))
 	t.is(await freddo().expect('statusCode', toExist), true)
 })
