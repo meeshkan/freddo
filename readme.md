@@ -84,8 +84,8 @@ t('/ip/json', async t => {
 const { freddo, expr, toExist } = require('freddo')
 const validator = require('validator')
 
-describe('/ip/json', async function() {
-  it('should serve a JSON response', function() {
+describe('/ip/json', function() {
+  it('should serve a JSON response', async function() {
     expect(await freddo("https://locate.now.sh/ip/json/")
       .status(200)
       .header('content-type', 'application/json; charset=utf-8')
