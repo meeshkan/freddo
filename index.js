@@ -100,8 +100,11 @@ Test.prototype.header = function(key, expected) {
     return this.expect(key, expected, true)
 }
 
-Test.prototype.body = function(expected) {
-    return this.expect('body', expected)
+Test.prototype.body = function(expected, expression = null) {
+    if (expression == null) {
+        return this.expect('body', expected)
+    }
+    return this.expect(expression, expected)
 }
 
 Test.prototype.redirectsTo = function(url) {
