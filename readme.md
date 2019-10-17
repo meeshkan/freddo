@@ -92,7 +92,7 @@ describe('/ip/json', async function() {
       .body(validator.isJSON)
       .expect(expr('.ip'), toExist)
       .ensure()).to.equal(true)
- 	})
+  })
 })
 ```
 
