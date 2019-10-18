@@ -77,7 +77,7 @@ t('/ip/json', async t => {
 })
 ```
 
-#### [mocha](https://github.com/mochajs/mocha)
+#### [Mocha](https://github.com/mochajs/mocha)
 
 ```js
 const { freddo, expr, exists } = require('freddo')
