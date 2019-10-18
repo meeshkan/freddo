@@ -118,7 +118,7 @@ Test.prototype.ensure = async function() {
     }
 }
 
-const toExist = (actual, location) => {
+const exists = (actual, location) => {
     if (actual.length != 0) {
         return true
     }
@@ -142,4 +142,4 @@ class Expression {
     }
 }
 
-module.exports = { freddo, expr, toExist }
+module.exports = { freddo, expr, exists }

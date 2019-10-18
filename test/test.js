@@ -4,7 +4,7 @@ const { clearModuleCache, stubModule } = require('./runkit')
 const clearFreddoCache = () => clearModuleCache('../index')
 const stubGot = (returnsVal) => stubModule('got', returnsVal)
 
-let freddo, expr, toExist
+let freddo, expr, exists
 
 t('body', async t => {
     clearFreddoCache()
@@ -102,15 +102,15 @@ t('expr', async t => {
 	t.is(await freddo().expect(expr('.foo'), ([x]) => x == 'bar'), true)
 })
 
-t('toExist', async t => {
+t('exists', async t => {
     clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: 200,
-        body: {}
+        body: { foo: 'bar' }
     })
-    ;({ freddo, toExist } = require('../index'))
-	t.is(await freddo().expect('statusCode', toExist), true)
+    ;({ freddo, expr, exists } = require('../index'))
+	t.is(await freddo().body(exists, expr('.foo')), true)
 })
 
 t('pass function as expected value', async t => {

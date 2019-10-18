@@ -11,7 +11,7 @@
 ## Usage
 
 ```js
-const { freddo, expr, toExist } = require('freddo');
+const { freddo, expr, exists } = require('freddo');
 
 (async () => {
   const isSvg = str => str.trim().startsWith('<svg ')
@@ -34,22 +34,22 @@ const { freddo, expr, toExist } = require('freddo');
   */
   await freddo('https://blockchain.info/latestblock')
     .status(200)
-    .expect(expr('.hash'), toExist)
-    .expect(expr('.time'), toExist)
-    .expect(expr('.time'), ([time]) => {
+    .body(exists, expr('.hash'))
+    .body(exists, expr('.time'))
+    .body(([time]) => {
       const DAY = 24 * 60 * 60 * 1000
       return {
           result: time > Date.now()/1000 - DAY,
           error: 'Most recent blockchain block is unrealistically old'
       }
-    })
-    .expect(expr('.block_index'), toExist)
-    .expect(expr('.height'), ([blockHeight]) => {
+    }, expr('.time'))
+    .body(exists, expr('.block_index'))
+    .body(([blockHeight]) => {
       return {
         result: blockHeight >= 500000,
         error: 'Block height of blockchain tip is insufficient'
       }
-    })
+    }, expr('.height'))
     .ensure()
 })();
 
@@ -65,7 +65,7 @@ const { freddo, expr, toExist } = require('freddo');
 
 ```js
 import * as t from 'ava'
-const { freddo, expr, toExist } = require('freddo')
+const { freddo, expr, exists } = require('freddo')
 const validator = require('validator')
 
 t('/ip/json', async t => {
@@ -73,7 +73,7 @@ t('/ip/json', async t => {
     .status(200)
     .header('content-type', 'application/json; charset=utf-8')
     .body(validator.isJSON)
-    .expect(expr('.ip'), toExist)
+    .body(exists, expr('.ip'))
     .ensure(), true)
 })
 ```
@@ -81,7 +81,7 @@ t('/ip/json', async t => {
 #### [mocha](https://github.com/mochajs/mocha)
 
 ```js
-const { freddo, expr, toExist } = require('freddo')
+const { freddo, expr, exists } = require('freddo')
 const validator = require('validator')
 
 describe('/ip/json', function() {
@@ -90,7 +90,7 @@ describe('/ip/json', function() {
       .status(200)
       .header('content-type', 'application/json; charset=utf-8')
       .body(validator.isJSON)
-      .expect(expr('.ip'), toExist)
+      .body(exists, expr('.ip'))
       .ensure()).to.equal(true)
   })
 })
@@ -150,7 +150,7 @@ Returns an `Expression object` that can be passed as an `expression` parameter t
 
 Type: [`JSPath path expression`](https://github.com/dfilatov/jspath#documentation)
 
-### toExist()
+### exists()
 
 Returns a function that can be passed as an `expected` parameter to the `freddo.body` function to check whether a `pattern` match is found
 
