@@ -1,4 +1,4 @@
-# Freddo [![Build Status](https://travis-ci.org/k4m4/freddo.svg?branch=master)](https://travis-ci.org/k4m4/freddo)
+# Freddo [![Build Status](https://travis-ci.com/k4m4/freddo.svg?branch=master)](https://travis-ci.com/k4m4/freddo)
 
 > Minimal assertion testing framework for APIs
 
