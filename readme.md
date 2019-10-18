@@ -141,6 +141,14 @@ Type: `Expression object`
 
 *Note*: When an expression is given, an array with the matches is returned. Therefore, in this case, an `exprected` parameter function should destructure its argument as an array (e.g. `([x]) => x == 'bar'`).
 
+### freddo.redirectsTo(url)
+
+Checks whether `status` code contains a redirection code (i.e. `301`, `302`, `303`, `307`, or `308`) and whether there exists a `location` `header` entity containing `url`.
+
+#### url
+
+Type: `string`
+
 ### freddo.ensure()
 
 Asserts the `boolean` response of the preceding functions.
