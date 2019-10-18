@@ -135,7 +135,7 @@ Compares equality of `body` with `expected` and returns a `boolean`.
 
 Type: `string | function`
 
-### expression
+#### expression
 
 Type: `Expression object`
 
