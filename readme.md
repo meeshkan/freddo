@@ -73,8 +73,7 @@ t('/ip/json', async t => {
     .status(200)
     .header('content-type', 'application/json; charset=utf-8')
     .body(validator.isJSON)
-    .body(exists, expr('.ip'))
-    .ensure(), true)
+    .body(exists, expr('.ip')), true)
 })
 ```
 
