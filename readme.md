@@ -100,11 +100,11 @@ describe('/ip/json', function() {
 
 ### freddo(URL)
 
-Returns a `Promise` for a modified `got` request object
+Returns a `Promise` for a modified [`got`](https://github.com/sindresorhus/got) request object.
 
 ### freddo.status(expected)
 
-Compares equality of `status-code` with `expected` and returns a `boolean`
+Compares equality of `status-code` with `expected` and returns a `boolean`.
 
 #### expected
 
@@ -112,7 +112,7 @@ Type: `string | function`
 
 ### freddo.header(entity, expected)
 
-Compares equality of `header` with key `type` to `expected` and returns a `boolean`
+Compares equality of `header` with key `type` to `expected` and returns a `boolean`.
 
 #### entity
 
@@ -126,7 +126,7 @@ Type: `string | function`
 
 ### freddo.body(expected[, expression])
 
-Compares equality of `body` with `expected` and returns a `boolean`
+Compares equality of `body` with `expected` and returns a `boolean`.
 
 #### expected
 
@@ -140,11 +140,11 @@ Type: `Expression object`
 
 ### freddo.ensure()
 
-Asserts the `boolean` response of the preceding functions
+Asserts the `boolean` response of the preceding functions.
 
 ### expr(pattern)
 
-Returns an `Expression object` that can be passed as an `expression` parameter to the `freddo.body` function (see above) so as to find a value matching the `pattern`
+Returns an `Expression object` that can be passed as an `expression` parameter to the `freddo.body` function (see above) so as to find a value matching the `pattern`.
 
 #### pattern
 
@@ -152,7 +152,7 @@ Type: [`JSPath path expression`](https://github.com/dfilatov/jspath#documentatio
 
 ### exists()
 
-Returns a function that can be passed as an `expected` parameter to the `freddo.body` function to check whether a `pattern` match is found
+Returns a function that can be passed as an `expected` parameter to the `freddo.body` function to check whether a `pattern` match is found.
 
 ## License
 
