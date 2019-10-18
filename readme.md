@@ -59,7 +59,7 @@ const { freddo, expr, exists } = require('freddo');
 })();
 ```
 
-### Uses with testing frameworks
+### Example uses with testing frameworks
 
 #### [AVA](https://github.com/avajs/ava)
 
