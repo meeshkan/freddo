@@ -5,15 +5,15 @@ const assert = require('assert').strict
 const freddo = url => new Test(url)
 
 function Test(url) {
-	this.dataObj = {
-		url,
-		body: {},
-		headers: {},
-		statusCode: null,
-		error: null
-	}
-	this.promise = Promise.resolve(null)
-	this.request()
+    this.dataObj = {
+        url,
+        body: {},
+        headers: {},
+        statusCode: null,
+        error: null
+    }
+    this.promise = Promise.resolve(null)
+    this.request()
 }
 
 Test.prototype.extend = function(promise, that) {
