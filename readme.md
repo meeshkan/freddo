@@ -90,8 +90,7 @@ describe('/ip/json', function() {
       .status(200)
       .header('content-type', 'application/json; charset=utf-8')
       .body(validator.isJSON)
-      .body(exists, expr('.ip'))
-      .ensure())
+      .body(exists, expr('.ip')))
   })
 })
 ```
