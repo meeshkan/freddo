@@ -98,9 +98,13 @@ describe('/ip/json', function() {
 
 ## API
 
-### freddo(URL)
+### freddo(url)
 
 Returns a `Promise` for a modified [`got`](https://github.com/sindresorhus/got) request object.
+
+#### url
+
+Type: `string`
 
 ### freddo.status(expected)
 
