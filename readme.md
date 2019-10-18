@@ -82,15 +82,16 @@ t('/ip/json', async t => {
 ```js
 const { freddo, expr, exists } = require('freddo')
 const validator = require('validator')
+const assert = require('assert').strict
 
 describe('/ip/json', function() {
   it('should serve a JSON response', async function() {
-    expect(await freddo("https://locate.now.sh/ip/json/")
+    assert.ok(await freddo("https://locate.now.sh/ip/json/")
       .status(200)
       .header('content-type', 'application/json; charset=utf-8')
       .body(validator.isJSON)
       .body(exists, expr('.ip'))
-      .ensure()).to.equal(true)
+      .ensure())
   })
 })
 ```
