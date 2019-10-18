@@ -61,7 +61,7 @@ const { freddo, expr, exists } = require('freddo');
 
 ### Uses with testing frameworks
 
-#### [ava](https://github.com/avajs/ava)
+#### [AVA](https://github.com/avajs/ava)
 
 ```js
 import * as t from 'ava'
