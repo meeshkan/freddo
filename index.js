@@ -2,9 +2,9 @@ const got = require('got')
 const JSPath = require('jspath')
 const assert = require('assert').strict
 
-const freddo = url => new Test(url)
+const freddo = (url, options = null) => new Test(url, options)
 
-function Test(url, options = null) {
+function Test(url, options) {
     this.data = {
         url,
         options,
