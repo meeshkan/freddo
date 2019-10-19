@@ -117,7 +117,7 @@ Type: `string | function`
 
 ### freddo.header(entity, expected)
 
-Compares equality of `header` with key `type` to `expected` and returns a `boolean`.
+Compares equality of `header` with key `entity` to `expected` and returns a `boolean`.
 
 #### entity
 
