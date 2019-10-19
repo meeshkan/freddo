@@ -99,7 +99,7 @@ describe('/ip/json', function() {
 
 ## API
 
-### freddo([url], [options])
+### freddo(url[, options])
 
 Returns a `Promise` for a modified [`got`](https://github.com/sindresorhus/got) request object.
 
