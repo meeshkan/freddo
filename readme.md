@@ -157,7 +157,7 @@ Type: `string | function`
 
 Type: `Expression object`
 
-*Note*: When an `expression` is given, an array containing the matched values is returned. Therefore, in this case, an `exprected` parameter function should treat its argument as an array and destructure it accordingly (e.g. `([x]) => x == 'bar'`).
+*Note*: When an `expression` is given, an array containing the matched values is returned. Therefore, in this case, an `expected` parameter function should treat its argument as an array and destructure it accordingly (e.g. `([x]) => x == 'bar'`).
 
 ### freddo.redirectsTo(url)
 
