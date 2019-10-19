@@ -165,6 +165,16 @@ Compares equality of `response.key` (where `response` is [`got`'s `response` obj
 
 *Note*: `freddo.ensure('body', expected)` is the same as `freddo.body(expected)` (and the same applies for `freddo.status`).
 
+#### key
+
+Type: `string`
+
+Any of [`got`'s `response` object](https://github.com/sindresorhus/got#response) keys.
+
+#### expected
+
+Type: `string | function`
+
 ### freddo.ensure()
 
 Asserts the `boolean` response of the preceding functions.
