@@ -128,9 +128,7 @@ const exists = (actual, location) => {
     }
 }
 
-const expr = (expression) => {
-    return new Expression(expression)
-}
+const expr = expression => new Expression(expression)
 
 class Expression {
     constructor(expression) {
