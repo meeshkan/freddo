@@ -5,12 +5,10 @@ const assert = require('assert').strict
 const freddo = url => new Test(url)
 
 function Test(url, options = null) {
-    this.dataObj = {
+    this.data = {
         url,
         options,
-        body: {},
-        headers: {},
-        statusCode: null,
+        response: {},
         error: null
     }
     this.promise = Promise.resolve(null)
@@ -32,14 +30,12 @@ Test.prototype.next = function(what) {
 Test.prototype.request = function() {
     return this.next(async () => {
         let response
-        if (this.dataObj.options != undefined) {
-            response = await got(this.dataObj.url, this.dataObj.options)
+        if (this.data.options != undefined) {
+            response = await got(this.data.url, this.data.options)
         } else {
-            response = await got(this.dataObj.url)
+            response = await got(this.data.url)
         }
-        this.dataObj.headers = response.headers
-        this.dataObj.body = response.body
-        this.dataObj.statusCode = response.statusCode
+        this.data.response = response
         return true
     })
 }
@@ -48,16 +44,16 @@ Test.prototype.verify = async function(key, expected, isHeader) {
     let check = expected
     let value, location
     if (key instanceof Expression) {
-        if (typeof this.dataObj.body != 'string') {
-            this.dataObj.body = JSON.stringify(this.dataObj.body)
+        if (typeof this.data.response.body != 'string') {
+            this.data.response.body = JSON.stringify(this.data.response.body)
         }
-        value = key.apply(JSON.parse(this.dataObj.body))
+        value = key.apply(JSON.parse(this.data.response.body))
         location = `expression ${JSON.stringify(key.expression)}`
     } else {
         if (isHeader) {
-            value = this.dataObj.headers[key]
+            value = this.data.response.headers[key]
         } else {
-            value = this.dataObj[key]
+            value = this.data.response[key]
         }
         if (typeof value === 'undefined') {
             throw new Error(`Key ${JSON.stringify(key)} does not exist`)
@@ -89,7 +85,7 @@ Test.prototype.verify = async function(key, expected, isHeader) {
         result = result.result
     }
     if (!result) {
-        this.dataObj.error = error
+        this.data.error = error
     }
     return result
 }
@@ -120,7 +116,7 @@ Test.prototype.redirectsTo = function(url) {
 
 Test.prototype.ensure = async function() {
     if (!(await this)) {
-        throw new Error(this.dataObj.error)
+        throw new Error(this.data.error)
     }
 }
 

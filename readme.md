@@ -159,6 +159,12 @@ Checks whether `status` code contains a redirection code (i.e. `301`, `302`, `30
 
 Type: `string`
 
+### freddo.ensure(key, expected)
+
+Compares equality of `response.key` (where `response` is [`got`'s `response` object](https://github.com/sindresorhus/got#response)) with `expected`, and returns a `boolean`.
+
+*Note*: `freddo.ensure('body', expected)` is the same as `freddo.body(expected)` (and the same applies for `freddo.status`).
+
 ### freddo.ensure()
 
 Asserts the `boolean` response of the preceding functions.
