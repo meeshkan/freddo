@@ -2,7 +2,7 @@
 
 > Minimal assertion testing framework for APIs
 
-[![Build Status](https://travis-ci.com/k4m4/freddo.svg?branch=master)](https://travis-ci.com/k4m4/freddo)[![Bundlephobia Size](https://badgen.net/bundlephobia/min/freddo)](https://bundlephobia.com/result?p=freddo)
+[![Build Status](https://travis-ci.com/k4m4/freddo.svg?branch=master)](https://travis-ci.com/k4m4/freddo) [![Bundlephobia Size](https://badgen.net/bundlephobia/min/freddo)](https://bundlephobia.com/result?p=freddo)
 
 ## Install
 
