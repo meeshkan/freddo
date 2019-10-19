@@ -109,7 +109,7 @@ Type: `string`
 
 ### freddo.status(expected)
 
-Compares equality of `status-code` with `expected` and returns a `boolean`.
+Compares equality of `status-code` with `expected`, and returns a `boolean`.
 
 #### expected
 
@@ -117,7 +117,7 @@ Type: `string | function`
 
 ### freddo.header(entity, expected)
 
-Compares equality of `header` with key `entity` to `expected` and returns a `boolean`.
+Compares equality of `header` with key `entity` to `expected`, and returns a `boolean`.
 
 #### entity
 
@@ -131,7 +131,7 @@ Type: `string | function`
 
 ### freddo.body(expected[, expression])
 
-Compares equality of `body` with `expected` and returns a `boolean`.
+Compares equality of `body` with `expected`, and returns a `boolean`.
 
 #### expected
 
