@@ -4,9 +4,10 @@ const assert = require('assert').strict
 
 const freddo = url => new Test(url)
 
-function Test(url) {
+function Test(url, options = null) {
     this.dataObj = {
         url,
+        options,
         body: {},
         headers: {},
         statusCode: null,
@@ -30,7 +31,12 @@ Test.prototype.next = function(what) {
 
 Test.prototype.request = function() {
     return this.next(async () => {
-        let response = await got(this.dataObj.url)
+        let response
+        if (this.dataObj.options != undefined) {
+            response = await got(this.dataObj.url, this.dataObj.options)
+        } else {
+            response = await got(this.dataObj.url)
+        }
         this.dataObj.headers = response.headers
         this.dataObj.body = response.body
         this.dataObj.statusCode = response.statusCode

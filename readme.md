@@ -99,13 +99,21 @@ describe('/ip/json', function() {
 
 ## API
 
-### freddo(url)
+### freddo([url], [options])
 
 Returns a `Promise` for a modified [`got`](https://github.com/sindresorhus/got) request object.
 
 #### url
 
-Type: `string`
+Type: `string | object`
+
+The URL to request, as a string, a [`https.request` options object](https://nodejs.org/api/https.html#https_https_request_options_callback), or a [WHATWG `URL`](https://nodejs.org/api/url.html#url_class_url). (Adapted from [`got`'s documentation](https://github.com/sindresorhus/got))
+
+#### options
+
+Type: `object`
+
+Any of the [`https.request`](https://nodejs.org/api/https.html#https_https_request_options_callback) options. (Adapted from [`got`'s documentation](https://github.com/sindresorhus/got))
 
 ### freddo.status(expected)
 
