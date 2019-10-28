@@ -66,6 +66,7 @@ const { freddo, expr, exists } = require('freddo');
   */
   await freddo('https://httpstat.us/301')
     .redirectsTo('https://httpstat.us/301')
+    .ensure()
 })();
 ```
 
