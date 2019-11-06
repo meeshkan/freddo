@@ -75,11 +75,11 @@ const { freddo, expr, exists } = require('freddo');
 #### [AVA](https://github.com/avajs/ava)
 
 ```js
-import * as t from 'ava'
+import * as test from 'ava'
 const { freddo, expr, exists } = require('freddo')
 const validator = require('validator')
 
-t('/ip/json', async t => {
+test('/ip/json', async t => {
   t.is(await freddo("https://locate.now.sh/ip/json/")
     .status(200)
     .header('content-type', 'application/json; charset=utf-8')
