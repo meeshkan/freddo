@@ -202,4 +202,4 @@ Returns a function that can be passed as an `expected` parameter to the `freddo.
 
 ## License
 
-MIT © [Nikolaos Kamarinakis](https://nikolaskama.me)
+MIT © [Meeshkan](https://meeshkan.com/)
