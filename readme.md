@@ -57,6 +57,7 @@ const { freddo, expr, exists } = require('freddo');
         error: 'Block height of blockchain tip is insufficient'
       }
     }, expr('.height'))
+    .body(exists, expr('.txIndexes'))
     .ensure()
 })();
 
