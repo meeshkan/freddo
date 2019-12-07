@@ -77,8 +77,8 @@ const { freddo, expr, exists } = require('freddo');
 
 ```js
 import * as test from 'ava'
-const { freddo, expr, exists } = require('freddo')
-const validator = require('validator')
+import { freddo, expr, exists } from 'freddo'
+import validator from 'validator'
 
 test('/ip/json', async t => {
   t.is(await freddo("https://locate.now.sh/ip/json/")
@@ -92,13 +92,14 @@ test('/ip/json', async t => {
 #### [Mocha](https://github.com/mochajs/mocha)
 
 ```js
-const { freddo, expr, exists } = require('freddo')
-const validator = require('validator')
-const assert = require('assert').strict
+import m from '.'
+import { freddo, expr, exists } from 'freddo'
+import validator from 'validator'
+import assert from 'assert'
 
 describe('/ip/json', function() {
   it('should serve a JSON response', async function() {
-    assert.ok(await freddo("https://locate.now.sh/ip/json/")
+    assert.strict.ok(await freddo("https://locate.now.sh/ip/json/")
       .status(200)
       .header('content-type', 'application/json; charset=utf-8')
       .body(validator.isJSON)
