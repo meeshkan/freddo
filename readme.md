@@ -79,6 +79,7 @@ const { freddo, expr, exists } = require('freddo');
 import * as test from 'ava'
 import m from '.'
 import { freddo, expr, exists } from 'freddo'
+import micro from 'micro'
 import testListen from 'test-listen'
 import validator from 'validator'
 
