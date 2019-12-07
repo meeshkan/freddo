@@ -92,7 +92,6 @@ test('/ip/json', async t => {
 #### [Mocha](https://github.com/mochajs/mocha)
 
 ```js
-import m from '.'
 import { freddo, expr, exists } from 'freddo'
 import validator from 'validator'
 import assert from 'assert'
