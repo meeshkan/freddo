@@ -77,11 +77,18 @@ const { freddo, expr, exists } = require('freddo');
 
 ```js
 import * as test from 'ava'
+import m from '.'
 import { freddo, expr, exists } from 'freddo'
+import testListen from 'test-listen'
 import validator from 'validator'
 
+let url
+test.before(async () => {
+  url = await testListen(micro(m))
+})
+
 test('/ip/json', async t => {
-  t.is(await freddo("https://locate.now.sh/ip/json/")
+  t.is(await freddo(url)
     .status(200)
     .header('content-type', 'application/json; charset=utf-8')
     .body(validator.isJSON)
