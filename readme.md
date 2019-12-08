@@ -139,7 +139,7 @@ Compares equality of `status-code` with `expected`, and returns a `boolean`.
 
 #### expected
 
-Type: `string | function`
+Type: `number | function`
 
 ### freddo.header(entity, expected)
 
