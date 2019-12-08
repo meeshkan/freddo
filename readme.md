@@ -153,7 +153,7 @@ e.g. `content-type`, `content-length`, `origin`, etc.
 
 #### expected
 
-Type: `string | function`
+Type: `string | number | function`
 
 ### freddo.body(expected[, expression])
 

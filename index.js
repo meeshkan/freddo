@@ -112,7 +112,7 @@ Test.prototype.status = function(expected) {
 }
 
 Test.prototype.header = function(key, expected) {
-    return this.expect(key, expected, true)
+    return this.expect(key, String(expected), true)
 }
 
 Test.prototype.body = function(expected, expression = null) {
