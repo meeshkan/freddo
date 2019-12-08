@@ -1,8 +1,19 @@
+'use strict'
+
+/**
+ * Module dependencies.
+ */
+
 const got = require('got')
 const JSPath = require('jspath')
 const assert = require('assert').strict
 
-const freddo = (url, options = null) => new Test(url, options)
+/**
+ * Initializes `Test`.
+ *
+ * @method freddo
+ * @api public
+ */
 
 function Test(url, options) {
     this.data = {
@@ -14,6 +25,8 @@ function Test(url, options) {
     this.promise = Promise.resolve(null)
     this.request()
 }
+
+const freddo = (url, options = null) => new Test(url, options)
 
 Test.prototype.extend = function(promise, that) {
     for (const key in that) {
@@ -130,8 +143,6 @@ const exists = (actual, location) => {
     }
 }
 
-const expr = expression => new Expression(expression)
-
 class Expression {
     constructor(expression) {
         this.expression = expression
@@ -141,5 +152,11 @@ class Expression {
         return result
     }
 }
+
+const expr = expression => new Expression(expression)
+
+/**
+ * Expose `freddo`, `expr`, and `exists`.
+ */
 
 module.exports = { freddo, expr, exists }
