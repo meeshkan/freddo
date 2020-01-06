@@ -1,4 +1,4 @@
-import * as test from 'ava'
+import {serial as test} from 'ava'
 const { clearModuleCache, stubModule } = require('./runkit')
 
 const clearFreddoCache = () => clearModuleCache('../index')
