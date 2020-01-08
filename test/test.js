@@ -1,4 +1,4 @@
-import * as test from 'ava'
+import {serial as test} from 'ava'
 const { clearModuleCache, stubModule } = require('./runkit')
 
 const clearFreddoCache = () => clearModuleCache('../index')
@@ -6,19 +6,21 @@ const stubGot = (returnsVal) => stubModule('got', returnsVal)
 
 let freddo, expr, exists
 
-test('body', async t => {
+test.beforeEach(t => {
     clearFreddoCache()
+})
+
+test('body', async t => {
     stubGot({
         headers: {},
         statusCode: '',
         body: { foo: 'bar' }
     })
     ;({ freddo } = require('../index'))
-	t.is(await freddo().body({'foo': 'bar'}), true)
+    t.is(await freddo().body({'foo': 'bar'}), true)
 })
 
 test('body with no match', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: '',
@@ -34,7 +36,6 @@ test('body with no match', async t => {
 })
 
 test('status code', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {}, 
         statusCode: 200, 
@@ -45,18 +46,16 @@ test('status code', async t => {
 })
 
 test('headers', async t => {
-    clearFreddoCache()
     stubGot({
         headers: { 'content-type': 'application/json' },
     	statusCode: '',
         body: {}
     })
     ;({ freddo } = require('../index'))
-	t.is(await freddo().header('content-type', 'application/json'), true)
+    t.is(await freddo().header('content-type', 'application/json'), true)
 })
 
 test('redirectsTo', async t => {
-    clearFreddoCache()
     stubGot({
         headers: { location: 'http://www.example.org/' }, 
         statusCode: 301,
@@ -67,7 +66,6 @@ test('redirectsTo', async t => {
 })
 
 test('invalid key', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: '',
@@ -81,7 +79,6 @@ test('invalid key', async t => {
 })
 
 test('no match without ensure', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: '',
@@ -92,7 +89,6 @@ test('no match without ensure', async t => {
 })
 
 test('expr', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: '',
@@ -103,7 +99,6 @@ test('expr', async t => {
 })
 
 test('exists', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: 200,
@@ -114,7 +109,6 @@ test('exists', async t => {
 })
 
 test('pass function as expected value', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: 404,
@@ -125,7 +119,6 @@ test('pass function as expected value', async t => {
 })
 
 test('pass function that returns boolean and error message', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: null,
@@ -146,7 +139,6 @@ test('pass function that returns boolean and error message', async t => {
 })
 
 test('pass function that does not return boolean', async t => {
-    clearFreddoCache()
     stubGot({
         headers: {},
         statusCode: 404,
