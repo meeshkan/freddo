@@ -3,11 +3,10 @@
   "version": "1.1.1",
   "description": "A minimal assertion testing framework for APIs",
   "main": "index.js",
-  "repository": "k4m4/freddo",
+  "repository": "meeshkan/freddo",
   "author": {
-    "name": "Nikolaos Kamarinakis",
-    "url": "https://nikolaskama.me",
-    "email": "nikolaskam@gmail.com"
+    "name": "Meeshkan",
+    "url": "http://meeshkan.com/"
   },
   "scripts": {
     "test": "ava"

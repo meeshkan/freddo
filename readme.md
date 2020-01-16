@@ -2,7 +2,7 @@
 
 > Minimal assertion testing framework for APIs
 
-[![Build Status](https://travis-ci.com/k4m4/freddo.svg?branch=master)](https://travis-ci.com/k4m4/freddo) [![Install Size](https://packagephobia.now.sh/badge?p=freddo)](https://packagephobia.now.sh/result?p=freddo)
+[![Build Status](https://travis-ci.com/Meeshkan/freddo.svg?branch=master)](https://travis-ci.com/Meeshkan/freddo) [![Install Size](https://packagephobia.now.sh/badge?p=freddo)](https://packagephobia.now.sh/result?p=freddo)
 
 ## Install
 
@@ -216,7 +216,7 @@ Thanks for wanting to contribute! We will soon have a contributing page
 detailing how to contribute. Meanwhile, feel free to star this repository, open issues,
 and ask for more features and support.
 
-Please note that this project is governed by the [Unmock Community Code of Conduct](https://github.com/unmock/code-of-conduct). By participating in this project, you agree to abide by its terms.
+Please note that this project is governed by the [Meeshkan Community Code of Conduct](https://github.com/unmock/code-of-conduct). By participating in this project, you agree to abide by its terms.
 
 ## License
 
