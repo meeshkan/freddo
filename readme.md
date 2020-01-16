@@ -2,7 +2,7 @@
 
 > Minimal assertion testing framework for APIs
 
-[![Build Status](https://travis-ci.org/Meeshkan/freddo.svg?branch=master)](https://travis-ci.org/Meeshkan/freddo) [![Install Size](https://packagephobia.now.sh/badge?p=freddo)](https://packagephobia.now.sh/result?p=freddo)
+[![Build Status](https://travis-ci.org/Meeshkan/freddo.svg?branch=master)](https://travis-ci.org/Meeshkan/freddo) [![Install Size](https://packagephobia.now.sh/badge?p=freddo)](https://packagephobia.now.sh/result?p=freddo) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
 ## Install
 

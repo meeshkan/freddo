@@ -9,7 +9,7 @@
     "url": "http://meeshkan.com/"
   },
   "scripts": {
-    "test": "ava"
+    "test": "xo && ava"
   },
   "license": "MIT",
   "dependencies": {
@@ -18,7 +18,8 @@
   },
   "devDependencies": {
     "ava": "^2.4.0",
-    "sinon": "^7.5.0"
+    "sinon": "^7.5.0",
+    "xo": "^0.25.3"
   },
   "keywords": [
     "assertion",
@@ -32,5 +33,11 @@
       "test/test.js",
       "!test/runkit.js"
     ]
+  },
+  "xo": {
+    "semicolon": false,
+    "rules": {
+      "guard-for-in": "off"
+    }
   }
 }
