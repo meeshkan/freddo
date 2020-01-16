@@ -43,7 +43,7 @@ Test.prototype.next = function (what) {
 Test.prototype.request = function () {
 	return this.next(async () => {
 		let response
-		if (this.data.options) {
+		if (this.data.options === undefined) {
 			response = await got(this.data.url)
 		} else {
 			response = await got(this.data.url, this.data.options)
