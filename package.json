@@ -1,5 +1,5 @@
 {
-  "name": "freddo",
+  "name": "@meeshkanml/freddo",
   "version": "1.2.0",
   "description": "A minimal assertion testing framework for APIs",
   "main": "index.js",

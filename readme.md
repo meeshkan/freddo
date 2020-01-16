@@ -7,13 +7,13 @@
 ## Install
 
 ```
-~ ❯❯❯ npm install freddo --save-dev
+~ ❯❯❯ npm install @meeshkanml/freddo --save-dev
 ```
 
 ## Usage
 
 ```js
-const { freddo, expr, exists } = require('freddo');
+const { freddo, expr, exists } = require('@meeshkanml/freddo');
 
 (async () => {
   const isSvg = str => str.trim().startsWith('<svg ')
@@ -78,7 +78,7 @@ const { freddo, expr, exists } = require('freddo');
 ```js
 import * as test from 'ava'
 import m from '.'
-import { freddo, expr, exists } from 'freddo'
+import { freddo, expr, exists } from '@meeshkanml/freddo'
 import micro from 'micro'
 import testListen from 'test-listen'
 import validator from 'validator'
@@ -100,7 +100,7 @@ test('/ip/json', async t => {
 #### [Mocha](https://github.com/mochajs/mocha)
 
 ```js
-import { freddo, expr, exists } from 'freddo'
+import { freddo, expr, exists } from '@meeshkanml/freddo'
 import validator from 'validator'
 import assert from 'assert'
 
