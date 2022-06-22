@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "jspath": "^0.4.0"
   },
   "devDependencies": {
